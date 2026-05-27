@@ -1,6 +1,6 @@
 # Ray XX TT Portfolio
 
-English single-page portfolio for a game technical animator / character rigger, built with Vite, React, and TypeScript for `rayxxtt.github.io`.
+English single-page portfolio for a game technical animator / character rigger, built with Vite, React, and TypeScript for `XIONGTAO-1.github.io`.
 
 ## Local Development
 
