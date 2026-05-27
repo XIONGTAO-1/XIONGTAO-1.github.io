@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Secondary motion placeholder thumbnail">
+  <rect width="1200" height="1600" fill="#0a0d12"/>
+  <path d="M298 1058c126-268 280-402 462-402 116 0 224 54 324 162v438H298z" fill="#17202c"/>
+  <path d="M250 780c180-220 386-256 618-108 94 60 188 74 282 42" fill="none" stroke="#f6ae5a" stroke-width="32" stroke-linecap="round"/>
+  <path d="M248 604c212-154 414-176 608-66" fill="none" stroke="#6aa9b8" stroke-width="22" stroke-linecap="round" opacity=".82"/>
+  <circle cx="356" cy="938" r="62" fill="#fff7ec" opacity=".82"/>
+  <circle cx="546" cy="812" r="44" fill="#fff7ec" opacity=".72"/>
+  <circle cx="742" cy="744" r="32" fill="#fff7ec" opacity=".62"/>
+  <text x="82" y="1428" fill="#fff7ec" font-family="Arial, sans-serif" font-size="74" font-weight="800">SECONDARY MOTION</text>
+</svg>
