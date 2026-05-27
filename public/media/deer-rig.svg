@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Deer character rig thumbnail">
+  <rect width="1200" height="1600" fill="#0b1017"/>
+  <path d="M168 1072c116-202 282-316 500-342 180-20 326 32 438 156v486H168z" fill="#172536"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M332 828c128-154 286-202 474-144l106-132M806 684l134 34M446 876l-84 276M612 844l-22 304M774 850l74 302" stroke="#f6ae5a" stroke-width="30"/>
+    <path d="M710 602c-16-96 24-172 120-228M812 596c42-98 118-146 226-144" stroke="#fff7ec" stroke-width="22" opacity=".78"/>
+    <path d="M360 1116h560" stroke="#6aa9b8" stroke-width="20" opacity=".72"/>
+  </g>
+  <circle cx="928" cy="540" r="48" fill="#f6ae5a"/>
+  <text x="86" y="1424" fill="#fff7ec" font-family="Arial, sans-serif" font-size="82" font-weight="800">DEER RIG</text>
+</svg>

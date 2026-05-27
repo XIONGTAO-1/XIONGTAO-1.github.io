@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Rendered prop art study thumbnail">
+  <rect width="1200" height="1600" fill="#0a0d12"/>
+  <ellipse cx="600" cy="1062" rx="382" ry="104" fill="#050608" opacity=".7"/>
+  <path d="M382 416h436l108 420-326 256-326-256z" fill="#1e2b3a" stroke="#31465c" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M436 510h328l70 272-234 184-234-184z" fill="#f6ae5a" opacity=".9"/>
+  <path d="M600 510v456M366 782h468" stroke="#fff7ec" stroke-width="18" opacity=".58"/>
+  <circle cx="778" cy="468" r="76" fill="#6aa9b8" opacity=".72"/>
+  <text x="86" y="1424" fill="#fff7ec" font-family="Arial, sans-serif" font-size="78" font-weight="800">RENDERED PROP</text>
+</svg>

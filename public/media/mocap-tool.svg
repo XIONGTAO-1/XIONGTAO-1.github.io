@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Mocap data processing tool thumbnail">
+  <rect width="1200" height="1600" fill="#10141d"/>
+  <rect x="128" y="260" width="944" height="768" rx="28" fill="#17202c" stroke="#31465c" stroke-width="10"/>
+  <g fill="none" stroke-linecap="round" stroke-width="22">
+    <path d="M228 452h300M228 594h516M228 736h420M228 878h588" stroke="#fff7ec" opacity=".78"/>
+    <path d="M740 430c76 50 110 116 102 198-8 82-56 142-146 180M746 808l-64-6 34-54" stroke="#f6ae5a"/>
+    <path d="M876 430c76 50 110 116 102 198-8 82-56 142-146 180M882 808l-64-6 34-54" stroke="#6aa9b8"/>
+  </g>
+  <circle cx="228" cy="452" r="24" fill="#f6ae5a"/>
+  <circle cx="228" cy="594" r="24" fill="#6aa9b8"/>
+  <circle cx="228" cy="736" r="24" fill="#f6ae5a"/>
+  <circle cx="228" cy="878" r="24" fill="#6aa9b8"/>
+  <text x="86" y="1424" fill="#fff7ec" font-family="Arial, sans-serif" font-size="78" font-weight="800">MOCAP TOOL</text>
+</svg>

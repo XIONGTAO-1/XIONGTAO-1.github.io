@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Stylized prop study thumbnail">
+  <rect width="1200" height="1600" fill="#11151e"/>
+  <path d="M306 426h588l102 352-396 330-396-330z" fill="#27384c" stroke="#f6ae5a" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M306 426l294 682 294-682M204 778h792" fill="none" stroke="#fff7ec" stroke-width="18" opacity=".58"/>
+  <g fill="#6aa9b8" opacity=".88">
+    <circle cx="418" cy="664" r="42"/>
+    <circle cx="782" cy="664" r="42"/>
+    <circle cx="600" cy="862" r="56"/>
+  </g>
+  <text x="86" y="1424" fill="#fff7ec" font-family="Arial, sans-serif" font-size="78" font-weight="800">PROP STUDY</text>
+</svg>

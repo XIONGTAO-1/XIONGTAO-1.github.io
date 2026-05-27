@@ -96,7 +96,7 @@ function App() {
             </div>
             <div className="reel-caption">
               <Play size={17} aria-hidden="true" />
-              <span>Primary reel embed. Replace this URL with the final reel.</span>
+              <span>Featured rigging breakdown</span>
             </div>
           </div>
         </section>

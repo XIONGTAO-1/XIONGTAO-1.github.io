@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="FK IK matching tool thumbnail">
+  <rect width="1200" height="1600" fill="#0c1118"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M292 452c154-74 292-42 414 96 72 80 142 120 210 120" stroke="#f6ae5a" stroke-width="34"/>
+    <path d="M292 846c154-74 292-42 414 96 72 80 142 120 210 120" stroke="#6aa9b8" stroke-width="34"/>
+    <path d="M918 668l-86-68M918 668l-88 66M918 1062l-86-68M918 1062l-88 66" stroke="#fff7ec" stroke-width="22" opacity=".8"/>
+  </g>
+  <rect x="162" y="338" width="238" height="216" rx="18" fill="#17202c" stroke="#31465c" stroke-width="8"/>
+  <rect x="162" y="732" width="238" height="216" rx="18" fill="#17202c" stroke="#31465c" stroke-width="8"/>
+  <text x="230" y="472" fill="#fff7ec" font-family="Arial, sans-serif" font-size="64" font-weight="800">FK</text>
+  <text x="234" y="866" fill="#fff7ec" font-family="Arial, sans-serif" font-size="64" font-weight="800">IK</text>
+  <text x="86" y="1424" fill="#fff7ec" font-family="Arial, sans-serif" font-size="78" font-weight="800">FK/IK MATCH</text>
+</svg>

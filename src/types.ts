@@ -14,7 +14,8 @@ export type ProjectCategory =
   | "Technical Animation"
   | "Tools"
   | "Pipeline"
-  | "Gameplay Animation";
+  | "Gameplay Animation"
+  | "Prop Art";
 
 export type Project = {
   id: string;

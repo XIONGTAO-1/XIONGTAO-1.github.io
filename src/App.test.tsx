@@ -5,6 +5,41 @@ import { profile } from "./data/profile";
 import { projects } from "./data/projects";
 
 describe("technical animator portfolio", () => {
+  it("uses the real work videos provided for the portfolio wall", () => {
+    const expectedWork = [
+      {
+        title: "Deer Character Rig",
+        videoUrl: "https://www.youtube.com/embed/MK-bLhXMIt8"
+      },
+      {
+        title: "Mocap Data Processing Tool",
+        videoUrl: "https://www.youtube.com/embed/AUMnX986lz0"
+      },
+      {
+        title: "FK/IK Matching Tool",
+        videoUrl: "https://www.youtube.com/embed/T3YWadIG2ZY"
+      },
+      {
+        title: "Subway Surfers Internship Rigging & Animation",
+        videoUrl: "https://www.youtube.com/embed/5mQ_Seq5At4"
+      },
+      {
+        title: "Stylized Prop Modeling & Texture Study",
+        videoUrl: "https://www.youtube.com/embed/atgUZYZBNzo"
+      },
+      {
+        title: "Rendered Prop Art Study",
+        videoUrl: "https://www.youtube.com/embed/3k-FLueGN-0"
+      }
+    ];
+
+    expect(projects).toHaveLength(expectedWork.length);
+    expectedWork.forEach((expected, index) => {
+      expect(projects[index]).toMatchObject(expected);
+    });
+    expect(profile.reelUrl).toBe(expectedWork[0].videoUrl);
+  });
+
   it("renders the English hero, reel, and primary hiring links", () => {
     render(<App />);
 

@@ -9,5 +9,5 @@ export const profile: Profile = {
   email: "rayxxtt@example.com",
   linkedinUrl: "https://www.linkedin.com/in/rayxxtt/",
   resumeUrl: "/NIE-XIONGTAO-Resume.pdf",
-  reelUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  reelUrl: "https://www.youtube.com/embed/MK-bLhXMIt8"
 };
