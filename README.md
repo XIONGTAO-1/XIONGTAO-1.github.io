@@ -1,4 +1,4 @@
-# Ray XX TT Portfolio
+# NIE XIONGTAO Portfolio
 
 English single-page portfolio for a game technical animator / character rigger, built with Vite, React, and TypeScript for `XIONGTAO-1.github.io`.
 
@@ -21,7 +21,7 @@ npm run build
 - Edit profile, contact, resume, and reel links in `src/data/profile.ts`.
 - Edit project cards and detail panels in `src/data/projects.ts`.
 - Replace thumbnail placeholders in `public/media/`.
-- Replace `public/Ray-XX-TT-Resume.pdf` with the final resume PDF before publishing.
+- Replace `public/NIE-XIONGTAO-Resume.pdf` with the final resume PDF before publishing.
 
 Video fields expect embeddable URLs:
 
