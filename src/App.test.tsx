@@ -5,6 +5,11 @@ import { profile } from "./data/profile";
 import { projects } from "./data/projects";
 
 describe("technical animator portfolio", () => {
+  it("uses the real contact links", () => {
+    expect(profile.email).toBe("niexiongtao@163.com");
+    expect(profile.linkedinUrl).toBe("https://www.linkedin.com/in/xiongtao-nie-ff6166/");
+  });
+
   it("uses the real work videos provided for the portfolio wall", () => {
     const expectedWork = [
       {
