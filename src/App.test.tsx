@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import App from "./App";
 import { profile } from "./data/profile";
 import { projects } from "./data/projects";
+import styles from "./styles.css?raw";
 
 describe("technical animator portfolio", () => {
   it("uses the real contact links", () => {
@@ -141,5 +142,13 @@ describe("technical animator portfolio", () => {
       expect(src).toContain("mute=1");
       expect(src).toContain("playsinline=1");
     });
+  });
+
+  it("keeps the desktop hero composition compact", () => {
+    expect(styles).toContain("width: min(1080px, calc(100% - 64px));");
+    expect(styles).toContain("grid-template-columns: minmax(0, 560px) minmax(320px, 390px);");
+    expect(styles).toContain("gap: 32px;");
+    expect(styles).toContain("justify-items: start;");
+    expect(styles).toContain("width: min(390px, 100%);");
   });
 });
