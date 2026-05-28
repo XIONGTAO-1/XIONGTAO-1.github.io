@@ -144,11 +144,12 @@ describe("technical animator portfolio", () => {
     });
   });
 
-  it("keeps the desktop hero composition compact", () => {
-    expect(styles).toContain("width: min(1080px, calc(100% - 64px));");
-    expect(styles).toContain("grid-template-columns: minmax(0, 560px) minmax(320px, 390px);");
-    expect(styles).toContain("gap: 32px;");
-    expect(styles).toContain("justify-items: start;");
-    expect(styles).toContain("width: min(390px, 100%);");
+  it("uses a wide desktop hero with a large circular portrait", () => {
+    expect(styles).toContain("width: min(1240px, calc(100% - 80px));");
+    expect(styles).toContain("grid-template-columns: minmax(0, 600px) minmax(430px, 520px);");
+    expect(styles).toContain("gap: 48px;");
+    expect(styles).toContain("justify-content: center;");
+    expect(styles).toContain("justify-items: end;");
+    expect(styles).toContain("width: clamp(430px, 36vw, 520px);");
   });
 });
