@@ -16,6 +16,9 @@ describe("technical animator portfolio", () => {
     expect(profile.about).toContain("Bachelor of Arts");
     expect(profile.about).toContain("Bachelor of Engineering");
     expect(profile.about).toContain("MSc in Computer Animation and Visual Effects");
+    expect(profile.about).toContain("Python");
+    expect(profile.about).toContain("MEL");
+    expect(profile.about).toContain("GLSL");
   });
 
   it("uses the requested work order and project media", () => {
@@ -44,6 +47,11 @@ describe("technical animator portfolio", () => {
         title: "Subway Surfers Internship Rigging & Animation",
         year: "2023",
         videoUrls: ["https://www.youtube.com/embed/5mQ_Seq5At4"]
+      },
+      {
+        title: "Secondary Motion Physics Simulator",
+        year: "2026",
+        videoUrls: ["https://www.youtube.com/embed/JmpCWAGyeAI"]
       },
       {
         title: "Prop Art",
@@ -85,6 +93,9 @@ describe("technical animator portfolio", () => {
     expect(screen.getByAltText(`${profile.name} portrait`)).toHaveAttribute("src", profile.photoUrl);
     expect(screen.queryByTitle(/demo reel/i)).not.toBeInTheDocument();
     expect(screen.getByText(/School of Sino-Korea New Media/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Python as my primary programming language, MEL for Maya scripting, and GLSL/i)
+    ).toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: /resume cn/i })[0]).toHaveAttribute(
       "href",
       profile.resumeCnUrl
@@ -117,10 +128,10 @@ describe("technical animator portfolio", () => {
     );
   });
 
-  it("renders the requested seven-item media wall", () => {
+  it("renders the requested eight-item media wall", () => {
     render(<App />);
 
-    expect(projects).toHaveLength(7);
+    expect(projects).toHaveLength(8);
 
     const wall = screen.getByRole("list", { name: /portfolio projects/i });
     const cards = within(wall).getAllByRole("listitem");
@@ -163,6 +174,7 @@ describe("technical animator portfolio", () => {
     const deer = projects.find((project) => project.id === "deer-character-rig");
     const blendMatrix = projects.find((project) => project.id === "blendmatrix-2d-lookat");
     const subway = projects.find((project) => project.id === "subway-surfers-internship");
+    const secondaryMotion = projects.find((project) => project.id === "secondary-motion-physics-simulator");
     const propArt = projects.find((project) => project.id === "prop-art");
     const conceptDesign = projects.find((project) => project.id === "concept-design");
 
@@ -178,6 +190,18 @@ describe("technical animator portfolio", () => {
     expect(blendMatrix?.details.join(" ")).toContain("offsetParentMatrix");
     expect(subway?.details.join(" ")).toContain("Rigging & Skinning");
     expect(subway?.details.join(" ")).toContain("Workflow Optimization");
+    expect(secondaryMotion?.overview).toContain("custom-built physics engine");
+    expect(secondaryMotion?.details.join(" ")).toContain("Modern OpenGL");
+    expect(secondaryMotion?.details.join(" ")).toContain("GLSL");
+    expect(secondaryMotion?.tools).toEqual([
+      "Python 3.13",
+      "PySide6",
+      "Modern OpenGL",
+      "GLSL 4.1",
+      "ncca-ngl",
+      "NumPy",
+      "Verlet-style Simulation"
+    ]);
     expect(propArt?.overview).toContain("PBR production workflow");
     expect(propArt?.process).toEqual([
       "Maya modeling",

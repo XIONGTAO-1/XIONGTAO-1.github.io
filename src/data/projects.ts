@@ -119,6 +119,38 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: "secondary-motion-physics-simulator",
+    title: "Secondary Motion Physics Simulator",
+    role: "Technical Animator / Simulation Tool Developer",
+    year: "2026",
+    category: "Technical Animation",
+    tools: [
+      "Python 3.13",
+      "PySide6",
+      "Modern OpenGL",
+      "GLSL 4.1",
+      "ncca-ngl",
+      "NumPy",
+      "Verlet-style Simulation"
+    ],
+    summary: "Standalone Python application for simulating ribbon and tail secondary motion with a custom physics solver.",
+    thumbnail: "/media/mocap-tool.svg",
+    videos: [
+      {
+        title: "Secondary Motion Physics Simulator",
+        url: "https://www.youtube.com/embed/JmpCWAGyeAI"
+      }
+    ],
+    overview:
+      "This standalone application simulates complex secondary motion dynamics, such as ribbons and tails, through a custom-built physics engine.",
+    details: [
+      "I engineered an iterative solver from scratch to calculate forces including gravity, damping, and soft distance constraints using vector arithmetic and NumPy for efficiency.",
+      "The visualization pipeline is built on Modern OpenGL Core Profile 4.1 and PySide6, using the ncca-ngl library for robust vector handling and graphics utilities.",
+      "I implemented custom GLSL vertex and fragment shaders with dynamic VBO updates for high-performance rendering.",
+      "The project demonstrates practical work in computational geometry, simulation algorithms, physics simulation, and direct integration of graphics APIs with Python."
+    ]
+  },
+  {
     id: "prop-art",
     title: "Prop Art",
     role: "Prop Artist",
