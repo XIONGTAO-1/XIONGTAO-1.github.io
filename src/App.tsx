@@ -70,9 +70,13 @@ function App() {
             <p className="tagline">{profile.tagline}</p>
             <p className="availability">{profile.location}</p>
             <div className="hero-actions" aria-label="Primary contact links">
-              <a className="button button-primary" href={profile.resumeUrl}>
+              <a className="button button-primary" href={profile.resumeCnUrl} download>
                 <Download size={18} aria-hidden="true" />
-                Resume
+                Resume CN
+              </a>
+              <a className="button" href={profile.resumeEnUrl} download>
+                <Download size={18} aria-hidden="true" />
+                Resume EN
               </a>
               <a className="button" href={`mailto:${profile.email}`}>
                 <Mail size={18} aria-hidden="true" />
@@ -182,9 +186,13 @@ function App() {
             <Linkedin size={18} aria-hidden="true" />
             LinkedIn
           </a>
-          <a href={profile.resumeUrl}>
+          <a href={profile.resumeCnUrl} download>
             <Download size={18} aria-hidden="true" />
-            Resume
+            Resume CN
+          </a>
+          <a href={profile.resumeEnUrl} download>
+            <Download size={18} aria-hidden="true" />
+            Resume EN
           </a>
         </div>
       </footer>

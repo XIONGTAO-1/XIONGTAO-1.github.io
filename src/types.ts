@@ -5,7 +5,8 @@ export type Profile = {
   location?: string;
   email: string;
   linkedinUrl: string;
-  resumeUrl: string;
+  resumeCnUrl: string;
+  resumeEnUrl: string;
   photoUrl: string;
   about: string;
 };

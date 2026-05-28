@@ -9,6 +9,8 @@ describe("technical animator portfolio", () => {
   it("uses the real contact links", () => {
     expect(profile.email).toBe("niexiongtao@163.com");
     expect(profile.linkedinUrl).toBe("https://www.linkedin.com/in/xiongtao-nie-ff6166/");
+    expect(profile.resumeCnUrl).toBe("/NIE-XIONGTAO-Resume.pdf");
+    expect(profile.resumeEnUrl).toBe("/NIE-XIONGTAO-Resume-EN.pdf");
     expect(profile.photoUrl).toBe("/media/IMG_5168.jpg");
     expect(profile.about).toContain("School of Sino-Korea New Media");
     expect(profile.about).toContain("Bachelor of Arts");
@@ -83,9 +85,13 @@ describe("technical animator portfolio", () => {
     expect(screen.getByAltText(`${profile.name} portrait`)).toHaveAttribute("src", profile.photoUrl);
     expect(screen.queryByTitle(/demo reel/i)).not.toBeInTheDocument();
     expect(screen.getByText(/School of Sino-Korea New Media/i)).toBeInTheDocument();
-    expect(screen.getAllByRole("link", { name: /resume/i })[0]).toHaveAttribute(
+    expect(screen.getAllByRole("link", { name: /resume cn/i })[0]).toHaveAttribute(
       "href",
-      profile.resumeUrl
+      profile.resumeCnUrl
+    );
+    expect(screen.getAllByRole("link", { name: /resume en/i })[0]).toHaveAttribute(
+      "href",
+      profile.resumeEnUrl
     );
     expect(screen.getAllByRole("link", { name: /email/i })[0]).toHaveAttribute(
       "href",
@@ -94,6 +100,20 @@ describe("technical animator portfolio", () => {
     expect(screen.getAllByRole("link", { name: /linkedin/i })[0]).toHaveAttribute(
       "href",
       profile.linkedinUrl
+    );
+  });
+
+  it("renders Chinese and English resume download choices in the footer", () => {
+    render(<App />);
+
+    const footer = screen.getByRole("contentinfo");
+    expect(within(footer).getByRole("link", { name: /resume cn/i })).toHaveAttribute(
+      "href",
+      profile.resumeCnUrl
+    );
+    expect(within(footer).getByRole("link", { name: /resume en/i })).toHaveAttribute(
+      "href",
+      profile.resumeEnUrl
     );
   });
 
