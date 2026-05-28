@@ -109,16 +109,18 @@ function App() {
           </div>
 
           <ul className="project-grid" aria-label="Portfolio projects">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <li key={project.id}>
                 <button
                   className="project-card"
+                  data-category={project.category}
                   type="button"
                   onClick={() => setSelectedProject(project)}
                   aria-label={`Open ${project.title} project details`}
                 >
-                  <img src={project.thumbnail} alt="" loading="lazy" />
-                  <span className="project-card-overlay" aria-hidden="true" />
+                  <span className="project-card-marker" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                   <span className="project-card-content">
                     <span className="project-meta">
                       <span>{project.category}</span>
@@ -232,28 +234,29 @@ function ProjectDialog({ project, onClose }: ProjectDialogProps) {
           <p className="dialog-role">{project.role}</p>
 
           <div className="dialog-section">
-            <h3>Problem</h3>
-            <p>{project.problem}</p>
+            <h3>Overview</h3>
+            <p>{project.overview}</p>
           </div>
 
           <div className="dialog-section">
-            <h3>Contribution</h3>
-            <p>{project.contribution}</p>
-          </div>
-
-          <div className="dialog-section">
-            <h3>Technical Breakdown</h3>
+            <h3>{project.process ? "Production Process" : "Details"}</h3>
             <ul>
-              {project.technicalBreakdown.map((item) => (
+              {project.details.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
 
-          <div className="dialog-section">
-            <h3>Outcome</h3>
-            <p>{project.outcome}</p>
-          </div>
+          {project.process ? (
+            <div className="dialog-section">
+              <h3>Pipeline</h3>
+              <ol className="process-list">
+                {project.process.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+            </div>
+          ) : null}
 
           <div className="dialog-tools" aria-label={`${project.title} tools`}>
             {project.tools.map((tool) => (

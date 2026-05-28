@@ -28,10 +28,9 @@ export type Project = {
   summary: string;
   thumbnail: string;
   videos: ProjectVideo[];
-  problem: string;
-  contribution: string;
-  technicalBreakdown: string[];
-  outcome: string;
+  overview: string;
+  details: string[];
+  process?: string[];
 };
 
 export type ProjectVideo = {

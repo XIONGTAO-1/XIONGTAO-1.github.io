@@ -7,8 +7,8 @@ export const projects: Project[] = [
     role: "Technical Animator / Tool Developer",
     year: "2026",
     category: "Tools",
-    tools: ["Python", "Mocap Cleanup", "Animation Pipeline", "Batch Processing"],
-    summary: "Tooling workflow for processing motion-capture data and reducing repetitive cleanup steps.",
+    tools: ["Python", "MotionBuilder", "Mocap Cleanup", "Loop Detection"],
+    summary: "Seamless Loop Tool for detecting, trimming, blending, and exporting loopable mocap locomotion.",
     thumbnail: "/media/mocap-tool.svg",
     videos: [
       {
@@ -16,17 +16,13 @@ export const projects: Project[] = [
         url: "https://www.youtube.com/embed/AUMnX986lz0"
       }
     ],
-    problem:
-      "Raw mocap data often requires repeated cleanup and preparation before it can be reviewed or handed to animation.",
-    contribution:
-      "Designed and built a processing tool that streamlines mocap data preparation and makes the workflow easier to repeat.",
-    technicalBreakdown: [
-      "Organized the tool around practical animation data cleanup tasks.",
-      "Reduced manual setup by grouping repeated processing steps into a clearer workflow.",
-      "Presented the tool behavior through a direct screen-recorded breakdown."
-    ],
-    outcome:
-      "Created a portfolio-ready technical animation tool that shows pipeline thinking and practical workflow automation."
+    overview:
+      "The Seamless Loop Tool automatically identifies the best walk or run segment inside a motion-capture clip, then trims, blends, and exports it as an animation that can loop indefinitely in a game engine.",
+    details: [
+      "The detection logic is based on a biomechanical gait signal: during walking, the Hip Y-axis height rises and falls in a periodic pattern.",
+      "Double-support moments place the body weight between both feet, producing Hip-height valleys; single-support moments lift the body over the support leg, producing peaks.",
+      "By reading those peaks and valleys, the tool can locate candidate gait cycles and prepare cleaner loop boundaries with less manual searching."
+    ]
   },
   {
     id: "fkik-matching-tool",
@@ -35,7 +31,7 @@ export const projects: Project[] = [
     year: "2026",
     category: "Tools",
     tools: ["Maya", "Python", "FK/IK Matching", "Animation Workflow"],
-    summary: "Animator support tool for matching FK and IK poses during rig interaction and animation cleanup.",
+    summary: "Universal FK/IK matching support for stable mode switching on common three-chain rigs.",
     thumbnail: "/media/fkik-match.svg",
     videos: [
       {
@@ -43,17 +39,13 @@ export const projects: Project[] = [
         url: "https://www.youtube.com/embed/T3YWadIG2ZY"
       }
     ],
-    problem:
-      "Switching between FK and IK can interrupt animation work when poses do not align cleanly across control modes.",
-    contribution:
-      "Built an FK/IK matching tool that helps preserve pose continuity and supports faster animation iteration.",
-    technicalBreakdown: [
-      "Matched control transforms between FK and IK states for cleaner mode switching.",
-      "Focused the interface on the specific actions animators need during pose cleanup.",
-      "Demonstrated the workflow through a concise tool breakdown video."
-    ],
-    outcome:
-      "Improved the usability story of the rigging toolset and showed practical support for animator workflows."
+    overview:
+      "The Universal FK/IK Matching Tool provides stable FK/IK alignment for common three-chain rigs in Maya, helping animators switch control modes with minimal popping.",
+    details: [
+      "The tool does not try to solve FK/IK from scratch; it solves the practical production problem of moving the inactive control set into the position and orientation needed to inherit the current pose.",
+      "Instead of guessing the rig's internal logic, it treats the Blend Joints as the final pose ground truth.",
+      "Because the Blend chain is typically the skeleton chain that drives skinning and represents the visible character pose, aligning the target controls to that chain preserves visual continuity during mode switches."
+    ]
   },
   {
     id: "deer-character-rig",
@@ -61,8 +53,8 @@ export const projects: Project[] = [
     role: "Character Rigger",
     year: "2026",
     category: "Rigging",
-    tools: ["Maya", "Character Rigging", "Skinning", "Deformation"],
-    summary: "Quadruped deer rig focused on animator-friendly body controls, deformation, and readable motion tests.",
+    tools: ["Maya", "Spline IK", "FK/IK Limbs", "Manual Rigging"],
+    summary: "Fully hand-built quadruped rig covering body, neck, limb, deformation, and basic facial controls.",
     thumbnail: "/media/deer-rig.svg",
     videos: [
       {
@@ -70,17 +62,13 @@ export const projects: Project[] = [
         url: "https://www.youtube.com/embed/MK-bLhXMIt8"
       }
     ],
-    problem:
-      "The deer character needed a stable quadruped rig that could support clear posing, natural body mechanics, and clean deformation.",
-    contribution:
-      "Built the character rig, organized animator controls, tested deformation quality, and prepared the setup for animation review.",
-    technicalBreakdown: [
-      "Structured body, leg, neck, and head controls around readable quadruped posing.",
-      "Balanced skin weights and deformation behavior for bending limbs and body motion.",
-      "Prepared a video breakdown that shows the rig controls and character movement clearly."
-    ],
-    outcome:
-      "Delivered a rig presentation that demonstrates quadruped rigging ability and production-oriented control design."
+    overview:
+      "A manually built deer character rig designed to support clear quadruped posing, readable deformation, and practical animation testing without relying on third-party rigging plugins.",
+      details: [
+        "The rigging system includes a Spline IK spine and neck setup for smooth body and head motion.",
+        "Traditional FK/IK limb systems support posing flexibility for the four legs.",
+        "The setup also includes basic facial controls and deformation work, with all systems built by hand without third-party plugins."
+      ]
   },
   {
     id: "subway-surfers-internship",
@@ -88,8 +76,8 @@ export const projects: Project[] = [
     role: "Rigging / Animation Intern",
     year: "2023",
     category: "Gameplay Animation",
-    tools: ["Game Animation", "Rigging", "Character Setup", "Production Support"],
-    summary: "Rigging and animation work completed during a Subway Surfers internship.",
+    tools: ["Game Animation", "Rigging", "Skinning", "Production Support"],
+    summary: "Rigging, skinning, animation, and asset delivery work completed during a Subway Surfers internship.",
     thumbnail: "/media/subway-internship.svg",
     videos: [
       {
@@ -97,17 +85,14 @@ export const projects: Project[] = [
         url: "https://www.youtube.com/embed/5mQ_Seq5At4"
       }
     ],
-    problem:
-      "The internship work required production-minded rigging and animation support for stylized game content.",
-    contribution:
-      "Contributed rigging and animation tasks during the Subway Surfers internship and prepared the work for portfolio review.",
-    technicalBreakdown: [
-      "Supported stylized game character and animation production needs.",
-      "Worked with production constraints where clarity, speed, and consistency matter.",
-      "Presented selected internship work in a short-form video format."
-    ],
-    outcome:
-      "Shows real production exposure and applied rigging/animation experience in a recognizable game context."
+    overview:
+      "Internship production work focused on rigging, skinning, animation design, and asset delivery support for stylized Subway Surfers content.",
+    details: [
+      "Rigging & Skinning: Executed precise bone rigging for characters and props, including skateboards and back accessories, achieving seamless skeletal transitions and lifelike dynamic effects.",
+      "Animation Design: Crafted diverse animation sets, including locomotion and interactions, with attention to rhythm and game feel to strengthen visual appeal and player engagement.",
+      "Workflow Optimization: Streamlined asset delivery by overseeing rendering and sequence frame output while maintaining high-fidelity visual quality.",
+      "Collaborated with the art team to refine character dynamics, directly contributing to the polished look of the project's visual assets."
+    ]
   },
   {
     id: "prop-art",
@@ -115,8 +100,8 @@ export const projects: Project[] = [
     role: "Prop Artist",
     year: "2025",
     category: "Prop Art",
-    tools: ["Modeling", "Substance Painter", "Lookdev", "Arnold Renderer"],
-    summary: "Two prop art studies covering modeling, Substance Painter texture work, lookdev, and Arnold rendering.",
+    tools: ["Maya", "ZBrush", "Substance Painter", "Arnold Renderer"],
+    summary: "Two prop studies following a PBR workflow from modeling and sculpting through texturing and rendering.",
     thumbnail: "/media/prop-study-a.svg",
     videos: [
       {
@@ -130,16 +115,17 @@ export const projects: Project[] = [
         autoplayOnOpen: true
       }
     ],
-    problem:
-      "The prop studies needed to show the asset process from model construction to final textured and rendered presentation.",
-    contribution:
-      "Modeled the props, painted textures in Substance Painter, handled look development, and rendered the final presentations with Arnold.",
-    technicalBreakdown: [
-      "Built the prop models with readable forms for close-up portfolio presentation.",
-      "Painted textures in Substance Painter to support stylized material definition and surface variation.",
-      "Set up Arnold renders to show the final assets clearly across both studies."
+    overview:
+      "Two prop art studies built through a PBR production workflow, from asset construction and sculpt refinement to texture authoring and final rendering.",
+    details: [
+      "The assets were modeled in Maya, refined with ZBrush sculpting, textured in Substance Painter, and rendered in Maya with Arnold.",
+      "The focus was on showing a complete prop pipeline with readable forms, controlled materials, and clean final presentation."
     ],
-    outcome:
-      "Combines both prop videos into one project and demonstrates asset creation range beyond rigging, including modeling, texturing, and final render presentation."
+    process: [
+      "Maya modeling",
+      "ZBrush sculpting",
+      "Substance Painter texturing",
+      "Maya Arnold rendering"
+    ]
   }
 ];
