@@ -71,6 +71,30 @@ export const projects: Project[] = [
       ]
   },
   {
+    id: "blendmatrix-2d-lookat",
+    title: "BlendMatrix 2D LookAt",
+    role: "Rigging Tool Developer",
+    year: "2026",
+    category: "Rigging",
+    tools: ["Maya", "Matrix Rigging", "blendMatrix", "offsetParentMatrix"],
+    summary: "Manual 2D controller and distance falloff setup for matrix-based eye LookAt behavior.",
+    thumbnail: "/media/fkik-match.svg",
+    videos: [
+      {
+        title: "BlendMatrix 2D LookAt",
+        url: "https://www.youtube.com/embed/QLUyJhRw0dY"
+      }
+    ],
+    overview:
+      "This is not a traditional automatic Aim system. It is a matrix LookAt setup built from a manual 2D controller and distance falloff, giving the animator direct control while still blending the driven eye behavior through matrices.",
+    details: [
+      "The Controller Object local translateX and translateY values are converted into directional weights for Up, Down, Left, and Right.",
+      "Those weights blend five reference pose matrices: Base, Up, Down, Left, and Right.",
+      "The same controller's world-space distance controls the overall follow strength, so the LookAt response fades as the controller moves farther away.",
+      "When the controller is too far from the eye, blendMatrix.envelope gradually falls to 0, and the final blended matrix is written directly into the Driven Object.offsetParentMatrix."
+    ]
+  },
+  {
     id: "subway-surfers-internship",
     title: "Subway Surfers Internship Rigging & Animation",
     role: "Rigging / Animation Intern",
@@ -127,5 +151,37 @@ export const projects: Project[] = [
       "Substance Painter texturing",
       "Maya Arnold rendering"
     ]
+  },
+  {
+    id: "concept-design",
+    title: "Concept Design",
+    role: "Concept Designer",
+    year: "2024",
+    category: "Concept Design",
+    tools: ["Photoshop", "Visual Development", "Character Design", "Storytelling"],
+    summary: "Four concept design boards presented in the original PSD sequence.",
+    thumbnail: "/media/concept-design-01.jpg",
+    videos: [],
+    images: [
+      {
+        src: "/media/concept-design-01.jpg",
+        alt: "Concept Design board 01"
+      },
+      {
+        src: "/media/concept-design-02.jpg",
+        alt: "Concept Design board 02"
+      },
+      {
+        src: "/media/concept-design-03.jpg",
+        alt: "Concept Design board 03"
+      },
+      {
+        src: "/media/concept-design-04.jpg",
+        alt: "Concept Design board 04"
+      }
+    ],
+    overview: "",
+    details: [],
+    detailMode: "image-only"
   }
 ];

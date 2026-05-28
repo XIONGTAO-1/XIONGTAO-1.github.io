@@ -16,7 +16,8 @@ export type ProjectCategory =
   | "Tools"
   | "Pipeline"
   | "Gameplay Animation"
-  | "Prop Art";
+  | "Prop Art"
+  | "Concept Design";
 
 export type Project = {
   id: string;
@@ -28,13 +29,20 @@ export type Project = {
   summary: string;
   thumbnail: string;
   videos: ProjectVideo[];
+  images?: ProjectImage[];
   overview: string;
   details: string[];
   process?: string[];
+  detailMode?: "standard" | "image-only";
 };
 
 export type ProjectVideo = {
   url: string;
   title: string;
   autoplayOnOpen?: boolean;
+};
+
+export type ProjectImage = {
+  src: string;
+  alt: string;
 };

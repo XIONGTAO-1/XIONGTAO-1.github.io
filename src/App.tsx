@@ -202,6 +202,30 @@ type ProjectDialogProps = {
 };
 
 function ProjectDialog({ project, onClose }: ProjectDialogProps) {
+  if (project.detailMode === "image-only") {
+    return (
+      <div className="dialog-backdrop" role="presentation" onMouseDown={onClose}>
+        <section
+          className="project-dialog image-only-dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-label={project.title}
+          onMouseDown={(event) => event.stopPropagation()}
+        >
+          <button className="close-button" type="button" onClick={onClose} aria-label="Close project detail">
+            <X size={22} aria-hidden="true" />
+          </button>
+
+          <div className="concept-gallery">
+            {project.images?.map((image) => (
+              <img key={image.src} src={image.src} alt={image.alt} loading="lazy" />
+            ))}
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="dialog-backdrop" role="presentation" onMouseDown={onClose}>
       <section

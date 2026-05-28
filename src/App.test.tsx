@@ -16,7 +16,7 @@ describe("technical animator portfolio", () => {
     expect(profile.about).toContain("MSc in Computer Animation and Visual Effects");
   });
 
-  it("uses the requested work order and project videos", () => {
+  it("uses the requested work order and project media", () => {
     const expectedWork = [
       {
         title: "Mocap Data Processing Tool",
@@ -34,6 +34,11 @@ describe("technical animator portfolio", () => {
         videoUrls: ["https://www.youtube.com/embed/MK-bLhXMIt8"]
       },
       {
+        title: "BlendMatrix 2D LookAt",
+        year: "2026",
+        videoUrls: ["https://www.youtube.com/embed/QLUyJhRw0dY"]
+      },
+      {
         title: "Subway Surfers Internship Rigging & Animation",
         year: "2023",
         videoUrls: ["https://www.youtube.com/embed/5mQ_Seq5At4"]
@@ -45,6 +50,11 @@ describe("technical animator portfolio", () => {
           "https://www.youtube.com/embed/atgUZYZBNzo",
           "https://www.youtube.com/embed/3k-FLueGN-0"
         ]
+      },
+      {
+        title: "Concept Design",
+        year: "2024",
+        videoUrls: []
       }
     ];
 
@@ -55,7 +65,7 @@ describe("technical animator portfolio", () => {
       expect(projects[index].videos.map((video) => video.url)).toEqual(expected.videoUrls);
     });
 
-    const propArt = projects.at(-1);
+    const propArt = projects.find((project) => project.id === "prop-art");
     expect(propArt?.videos).toHaveLength(2);
     expect(propArt?.videos.every((video) => video.autoplayOnOpen)).toBe(true);
   });
@@ -87,10 +97,10 @@ describe("technical animator portfolio", () => {
     );
   });
 
-  it("renders the requested five-item media wall", () => {
+  it("renders the requested seven-item media wall", () => {
     render(<App />);
 
-    expect(projects).toHaveLength(5);
+    expect(projects).toHaveLength(7);
 
     const wall = screen.getByRole("list", { name: /portfolio projects/i });
     const cards = within(wall).getAllByRole("listitem");
@@ -131,8 +141,10 @@ describe("technical animator portfolio", () => {
     const mocap = projects.find((project) => project.id === "mocap-data-processing-tool");
     const fkik = projects.find((project) => project.id === "fkik-matching-tool");
     const deer = projects.find((project) => project.id === "deer-character-rig");
+    const blendMatrix = projects.find((project) => project.id === "blendmatrix-2d-lookat");
     const subway = projects.find((project) => project.id === "subway-surfers-internship");
     const propArt = projects.find((project) => project.id === "prop-art");
+    const conceptDesign = projects.find((project) => project.id === "concept-design");
 
     expect(mocap?.overview).toContain("Seamless Loop Tool");
     expect(mocap?.details.join(" ")).toContain("Hip Y-axis");
@@ -140,6 +152,10 @@ describe("technical animator portfolio", () => {
     expect(fkik?.details.join(" ")).toContain("Blend Joints");
     expect(deer?.details.join(" ")).toContain("Spline IK");
     expect(deer?.details.join(" ")).toContain("without third-party plugins");
+    expect(blendMatrix?.overview).toContain("manual 2D controller");
+    expect(blendMatrix?.overview).toContain("distance falloff");
+    expect(blendMatrix?.details.join(" ")).toContain("blendMatrix.envelope");
+    expect(blendMatrix?.details.join(" ")).toContain("offsetParentMatrix");
     expect(subway?.details.join(" ")).toContain("Rigging & Skinning");
     expect(subway?.details.join(" ")).toContain("Workflow Optimization");
     expect(propArt?.overview).toContain("PBR production workflow");
@@ -148,6 +164,13 @@ describe("technical animator portfolio", () => {
       "ZBrush sculpting",
       "Substance Painter texturing",
       "Maya Arnold rendering"
+    ]);
+    expect(conceptDesign?.detailMode).toBe("image-only");
+    expect(conceptDesign?.images?.map((image) => image.src)).toEqual([
+      "/media/concept-design-01.jpg",
+      "/media/concept-design-02.jpg",
+      "/media/concept-design-03.jpg",
+      "/media/concept-design-04.jpg"
     ]);
 
     projects.forEach((project) => {
@@ -183,6 +206,29 @@ describe("technical animator portfolio", () => {
     expect(within(dialog).getByText(/Maya Arnold rendering/i)).toBeInTheDocument();
   });
 
+  it("opens Concept Design as an image-only detail panel in PSD order", async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const project = projects.find((item) => item.id === "concept-design");
+    expect(project).toBeDefined();
+
+    await user.click(screen.getByRole("button", { name: /concept design/i }));
+
+    const dialog = screen.getByRole("dialog", { name: /concept design/i });
+    const images = within(dialog).getAllByRole("img");
+    expect(images.map((image) => image.getAttribute("src"))).toEqual([
+      "/media/concept-design-01.jpg",
+      "/media/concept-design-02.jpg",
+      "/media/concept-design-03.jpg",
+      "/media/concept-design-04.jpg"
+    ]);
+    expect(within(dialog).queryByRole("heading", { name: /overview/i })).not.toBeInTheDocument();
+    expect(within(dialog).queryByRole("heading", { name: /details/i })).not.toBeInTheDocument();
+    expect(within(dialog).queryByRole("heading", { name: /pipeline/i })).not.toBeInTheDocument();
+    expect(within(dialog).queryByLabelText(/concept design tools/i)).not.toBeInTheDocument();
+  });
+
   it("uses a wide desktop hero with a large circular portrait", () => {
     expect(styles).toContain("width: min(1240px, calc(100% - 80px));");
     expect(styles).toContain("grid-template-columns: minmax(0, 600px) minmax(430px, 520px);");
@@ -195,6 +241,10 @@ describe("technical animator portfolio", () => {
   it("uses readable abstract work cards and vertical multi-video dialogs", () => {
     expect(styles).not.toContain(".project-card img");
     expect(styles).toContain(".project-card-marker");
+    expect(styles).toContain("height: 420px;");
+    expect(styles).toContain("-webkit-line-clamp: 3;");
+    expect(styles).toContain(".project-card[data-category=\"Concept Design\"]");
+    expect(styles).toContain(".concept-gallery");
     expect(styles).toContain("background: linear-gradient(145deg, #151a23 0%, #0d1118 58%, #080a0f 100%);");
     expect(styles).toContain(".dialog-media-grid.multi");
     expect(styles).toContain("grid-template-columns: 1fr;");
