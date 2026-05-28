@@ -4,13 +4,12 @@ import {
   Download,
   Linkedin,
   Mail,
-  Play,
   Wrench,
   X
 } from "lucide-react";
 import { profile } from "./data/profile";
 import { projects } from "./data/projects";
-import type { Project } from "./types";
+import type { Project, ProjectVideo } from "./types";
 
 const skillGroups = [
   {
@@ -85,20 +84,15 @@ function App() {
             </div>
           </div>
 
-          <div className="reel-card" aria-label="Demo reel">
-            <div className="reel-frame">
-              <iframe
-                title="Demo reel"
-                src={profile.reelUrl}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <div className="reel-caption">
-              <Play size={17} aria-hidden="true" />
-              <span>Featured rigging breakdown</span>
-            </div>
+          <div className="hero-portrait-panel" aria-label={`${profile.name} portrait`}>
+            <img className="hero-portrait" src={profile.photoUrl} alt={`${profile.name} portrait`} />
           </div>
+        </section>
+
+        <section className="about-section" aria-labelledby="about-title">
+          <p className="eyebrow">Education & training</p>
+          <h2 id="about-title">Creative pipeline foundation, technical production focus</h2>
+          <p>{profile.about}</p>
         </section>
 
         <section className="work-section" id="work" aria-labelledby="work-title">
@@ -219,13 +213,17 @@ function ProjectDialog({ project, onClose }: ProjectDialogProps) {
           <X size={22} aria-hidden="true" />
         </button>
 
-        <div className="dialog-media">
-          <iframe
-            title={`${project.title} video`}
-            src={project.videoUrl}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+        <div className={project.videos.length > 1 ? "dialog-media-grid multi" : "dialog-media-grid"}>
+          {project.videos.map((video) => (
+            <div className="dialog-media" key={video.url}>
+              <iframe
+                title={`${video.title} video`}
+                src={getVideoSrc(video)}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ))}
         </div>
 
         <div className="dialog-content">
@@ -266,6 +264,15 @@ function ProjectDialog({ project, onClose }: ProjectDialogProps) {
       </section>
     </div>
   );
+}
+
+function getVideoSrc(video: ProjectVideo) {
+  if (!video.autoplayOnOpen) {
+    return video.url;
+  }
+
+  const separator = video.url.includes("?") ? "&" : "?";
+  return `${video.url}${separator}autoplay=1&mute=1&playsinline=1`;
 }
 
 export default App;

@@ -6,7 +6,8 @@ export type Profile = {
   email: string;
   linkedinUrl: string;
   resumeUrl: string;
-  reelUrl: string;
+  photoUrl: string;
+  about: string;
 };
 
 export type ProjectCategory =
@@ -26,9 +27,15 @@ export type Project = {
   tools: string[];
   summary: string;
   thumbnail: string;
-  videoUrl: string;
+  videos: ProjectVideo[];
   problem: string;
   contribution: string;
   technicalBreakdown: string[];
   outcome: string;
+};
+
+export type ProjectVideo = {
+  url: string;
+  title: string;
+  autoplayOnOpen?: boolean;
 };

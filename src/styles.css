@@ -87,11 +87,10 @@ img {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(460px, 1.14fr);
-  gap: 44px;
+  grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.72fr);
+  gap: 56px;
   align-items: center;
-  min-height: calc(100vh - 72px);
-  padding: 70px 40px 34px;
+  padding: 72px 40px 54px;
 }
 
 .hero-copy {
@@ -209,22 +208,28 @@ h3 {
   color: #11110f;
 }
 
-.reel-card {
-  border: 1px solid rgba(246, 241, 231, 0.12);
-  border-radius: 8px;
-  background: #11161f;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
-  overflow: hidden;
+.hero-portrait-panel {
+  display: grid;
+  place-items: center;
 }
 
-.reel-frame,
+.hero-portrait {
+  width: min(430px, 100%);
+  aspect-ratio: 1;
+  border: 1px solid rgba(246, 241, 231, 0.18);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.42),
+    0 0 0 18px rgba(246, 241, 231, 0.035);
+}
+
 .dialog-media {
   position: relative;
   aspect-ratio: 16 / 9;
   background: #050608;
 }
 
-.reel-frame iframe,
 .dialog-media iframe {
   position: absolute;
   inset: 0;
@@ -233,19 +238,32 @@ h3 {
   border: 0;
 }
 
-.reel-caption {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 18px;
-  color: #bfc6d4;
-  font-size: 0.9rem;
-}
-
+.about-section,
 .work-section,
 .skills-section,
 .footer {
   padding: 64px 40px;
+}
+
+.about-section {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.52fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+  border-top: 1px solid rgba(246, 241, 231, 0.1);
+}
+
+.about-section .eyebrow {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+.about-section p:last-child {
+  max-width: 86ch;
+  margin-bottom: 0;
+  color: #cbd0d9;
+  font-size: 1rem;
+  line-height: 1.78;
 }
 
 .section-heading {
@@ -287,7 +305,7 @@ h3 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 16px;
   padding: 0;
   margin: 0;
@@ -457,8 +475,8 @@ h3 {
 .project-dialog {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(380px, 0.78fr);
-  width: min(1180px, 100%);
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
+  width: min(1280px, 100%);
   max-height: min(820px, calc(100vh - 48px));
   border: 1px solid rgba(246, 241, 231, 0.15);
   border-radius: 8px;
@@ -490,9 +508,15 @@ h3 {
   outline: none;
 }
 
-.dialog-media {
+.dialog-media-grid {
+  display: grid;
+  gap: 14px;
   align-self: start;
-  min-height: 100%;
+  padding: 18px;
+}
+
+.dialog-media-grid.multi {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .dialog-content {
@@ -532,7 +556,6 @@ h3 {
 @media (max-width: 1080px) {
   .hero {
     grid-template-columns: 1fr;
-    min-height: 0;
   }
 
   .project-grid {
@@ -543,8 +566,8 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .dialog-media {
-    min-height: auto;
+  .dialog-media-grid.multi {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -560,6 +583,7 @@ h3 {
   }
 
   .hero,
+  .about-section,
   .work-section,
   .skills-section,
   .footer {
@@ -569,6 +593,18 @@ h3 {
 
   .hero {
     padding-top: 40px;
+  }
+
+  .hero-portrait {
+    width: min(320px, 82vw);
+  }
+
+  .about-section {
+    display: block;
+  }
+
+  .about-section h2 {
+    margin: 14px 0 18px;
   }
 
   h1 {
