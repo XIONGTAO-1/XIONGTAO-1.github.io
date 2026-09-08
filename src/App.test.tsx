@@ -145,8 +145,23 @@ describe("technical animator portfolio", () => {
       expect(card.getByRole("button", { name: new RegExp(project.title, "i") })).toBeInTheDocument();
       expect(card.getByText(project.role)).toBeInTheDocument();
       expect(card.getAllByText(project.category).length).toBeGreaterThan(0);
-      expect(card.queryByRole("img")).not.toBeInTheDocument();
+      const thumbnails = Array.isArray(project.thumbnail) ? project.thumbnail : [project.thumbnail];
+      const previews = card.getAllByRole("img");
+      expect(previews.map((image) => image.getAttribute("src"))).toEqual(thumbnails);
+      previews.forEach((image) => {
+        expect(image).toHaveAttribute("loading", "lazy");
+        expect(image.closest(".project-card-content")).toBeNull();
+      });
+      thumbnails.forEach((src) => {
+        expect(src).toMatch(/^\/media\/.+\.jpg$/);
+      });
     });
+    expect(wall.querySelector("iframe")).toBeNull();
+    expect(projects[0].thumbnail).toBe("/media/mocap-preview.jpg");
+    expect(projects.find((project) => project.id === "prop-art")?.thumbnail).toEqual([
+      "/media/prop-one-preview.jpg",
+      "/media/prop-two-preview.jpg"
+    ]);
   });
 
   it("opens and closes a simplified same-page project detail panel", async () => {
@@ -288,14 +303,18 @@ describe("technical animator portfolio", () => {
     expect(styles).toContain("width: clamp(430px, 36vw, 520px);");
   });
 
-  it("uses readable abstract work cards and vertical multi-video dialogs", () => {
-    expect(styles).not.toContain(".project-card img");
-    expect(styles).toContain(".project-card-marker");
-    expect(styles).toContain("height: 420px;");
+  it("uses equal image-and-text cards with responsive columns and vertical video dialogs", () => {
+    expect(styles).toMatch(/\.project-grid\s*\{[^}]*grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)/);
+    expect(styles).toMatch(/\.project-card\s*\{[^}]*grid-template-rows: auto 306px/);
+    expect(styles).toMatch(/\.project-card-media\s*\{[^}]*aspect-ratio: 16 \/ 9/);
+    expect(styles).toMatch(/\.project-card-content\s*\{[^}]*background: #141618/);
+    expect(styles).toMatch(/\.project-card-media\.paired\s*\{[^}]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+    expect(styles).toContain("object-fit: contain;");
+    expect(styles).toContain("grid-template-columns: repeat(2, minmax(0, 1fr));");
+    expect(styles).not.toContain(".project-card::before");
     expect(styles).toContain("-webkit-line-clamp: 3;");
     expect(styles).toContain(".project-card[data-category=\"Concept Design\"]");
     expect(styles).toContain(".concept-gallery");
-    expect(styles).toContain("background: linear-gradient(145deg, #151a23 0%, #0d1118 58%, #080a0f 100%);");
     expect(styles).toContain(".dialog-media-grid.multi");
     expect(styles).toContain("grid-template-columns: 1fr;");
   });

@@ -28,7 +28,7 @@ export type Project = {
   category: ProjectCategory;
   tools: string[];
   summary: string;
-  thumbnail: string;
+  thumbnail: string | string[];
   videos: ProjectVideo[];
   images?: ProjectImage[];
   overview: string;

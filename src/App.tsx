@@ -113,7 +113,7 @@ function App() {
           </div>
 
           <ul className="project-grid" aria-label="Portfolio projects">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <li key={project.id}>
                 <button
                   className="project-card"
@@ -122,8 +122,20 @@ function App() {
                   onClick={() => setSelectedProject(project)}
                   aria-label={`Open ${project.title} project details`}
                 >
-                  <span className="project-card-marker" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
+                  <span
+                    className={Array.isArray(project.thumbnail) ? "project-card-media paired" : "project-card-media"}
+                  >
+                    {(Array.isArray(project.thumbnail) ? project.thumbnail : [project.thumbnail]).map((src, index) => (
+                      <img
+                        key={src}
+                        src={src}
+                        alt={`${project.title} preview ${index + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                        width={1280}
+                        height={720}
+                      />
+                    ))}
                   </span>
                   <span className="project-card-content">
                     <span className="project-meta">

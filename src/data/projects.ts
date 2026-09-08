@@ -9,7 +9,7 @@ export const projects: Project[] = [
     category: "Tools",
     tools: ["Python", "MotionBuilder", "Mocap Cleanup", "Loop Detection", "AMASS", "Random Forest"],
     summary: "Seamless Loop Tool for detecting, trimming, blending, and exporting loopable mocap locomotion.",
-    thumbnail: "/media/mocap-tool.svg",
+    thumbnail: "/media/mocap-preview.jpg",
     videos: [
       {
         title: "Mocap Data Processing Tool",
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     category: "Tools",
     tools: ["Maya", "Python", "FK/IK Matching", "Animation Workflow"],
     summary: "Universal FK/IK matching support for stable mode switching on common three-chain rigs.",
-    thumbnail: "/media/fkik-match.svg",
+    thumbnail: "/media/fkik-preview.jpg",
     videos: [
       {
         title: "FK/IK Matching Tool",
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     category: "Rigging",
     tools: ["Maya", "Spline IK", "FK/IK Limbs", "Manual Rigging"],
     summary: "Fully hand-built quadruped rig covering body, neck, limb, deformation, and basic facial controls.",
-    thumbnail: "/media/deer-rig.svg",
+    thumbnail: "/media/deer-preview.jpg",
     videos: [
       {
         title: "Deer Character Rig",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     category: "Rigging",
     tools: ["Maya", "Matrix Rigging", "blendMatrix", "offsetParentMatrix"],
     summary: "Manual 2D controller and distance falloff setup for matrix-based eye LookAt behavior.",
-    thumbnail: "/media/fkik-match.svg",
+    thumbnail: "/media/lookat-preview.jpg",
     videos: [
       {
         title: "BlendMatrix 2D LookAt",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     category: "Gameplay Animation",
     tools: ["Game Animation", "Rigging", "Skinning", "Production Support"],
     summary: "Rigging, skinning, animation, and asset delivery work completed during a Subway Surfers internship.",
-    thumbnail: "/media/subway-internship.svg",
+    thumbnail: "/media/subway-preview.jpg",
     videos: [
       {
         title: "Subway Surfers Internship Rigging and Animation",
@@ -139,7 +139,7 @@ export const projects: Project[] = [
       "Verlet-style Simulation"
     ],
     summary: "Standalone Python application for simulating ribbon and tail secondary motion with a custom physics solver.",
-    thumbnail: "/media/mocap-tool.svg",
+    thumbnail: "/media/physics-preview.jpg",
     videos: [
       {
         title: "Secondary Motion Physics Simulator",
@@ -163,7 +163,7 @@ export const projects: Project[] = [
     category: "Prop Art",
     tools: ["Maya", "ZBrush", "Substance Painter", "Arnold Renderer"],
     summary: "Two prop studies following a PBR workflow from modeling and sculpting through texturing and rendering.",
-    thumbnail: "/media/prop-study-a.svg",
+    thumbnail: ["/media/prop-one-preview.jpg", "/media/prop-two-preview.jpg"],
     videos: [
       {
         title: "Prop Art Study One",
