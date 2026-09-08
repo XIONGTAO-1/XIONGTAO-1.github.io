@@ -7,13 +7,17 @@ export const projects: Project[] = [
     role: "Technical Animator / Tool Developer",
     year: "2026",
     category: "Tools",
-    tools: ["Python", "MotionBuilder", "Mocap Cleanup", "Loop Detection"],
+    tools: ["Python", "MotionBuilder", "Mocap Cleanup", "Loop Detection", "AMASS", "Random Forest"],
     summary: "Seamless Loop Tool for detecting, trimming, blending, and exporting loopable mocap locomotion.",
     thumbnail: "/media/mocap-tool.svg",
     videos: [
       {
         title: "Mocap Data Processing Tool",
         url: "https://www.youtube.com/embed/AUMnX986lz0"
+      },
+      {
+        title: "Mocap Data Processing Tool - AMASS Random Forest Update",
+        url: "https://www.youtube.com/embed/U8uT9hT65pY"
       }
     ],
     overview:
@@ -21,7 +25,8 @@ export const projects: Project[] = [
     details: [
       "The detection logic is based on a biomechanical gait signal: during walking, the Hip Y-axis height rises and falls in a periodic pattern.",
       "Double-support moments place the body weight between both feet, producing Hip-height valleys; single-support moments lift the body over the support leg, producing peaks.",
-      "By reading those peaks and valleys, the tool can locate candidate gait cycles and prepare cleaner loop boundaries with less manual searching."
+      "By reading those peaks and valleys, the tool can locate candidate gait cycles and prepare cleaner loop boundaries with less manual searching.",
+      "In the updated version, I trained a random forest classifier on the AMASS motion dataset for motion recognition. The second video demonstrates this update."
     ]
   },
   {

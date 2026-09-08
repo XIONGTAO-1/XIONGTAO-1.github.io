@@ -26,7 +26,10 @@ describe("technical animator portfolio", () => {
       {
         title: "Mocap Data Processing Tool",
         year: "2026",
-        videoUrls: ["https://www.youtube.com/embed/AUMnX986lz0"]
+        videoUrls: [
+          "https://www.youtube.com/embed/AUMnX986lz0",
+          "https://www.youtube.com/embed/U8uT9hT65pY"
+        ]
       },
       {
         title: "FK/IK Matching Tool",
@@ -161,8 +164,11 @@ describe("technical animator portfolio", () => {
     expect(within(dialog).queryByRole("heading", { name: /contribution/i })).not.toBeInTheDocument();
     expect(within(dialog).queryByRole("heading", { name: /technical breakdown/i })).not.toBeInTheDocument();
     expect(within(dialog).queryByRole("heading", { name: /outcome/i })).not.toBeInTheDocument();
-    const iframe = within(dialog).getByTitle(new RegExp(`${project.videos[0].title} video`, "i"));
-    expect(iframe).toHaveAttribute("src", project.videos[0].url);
+    expect(dialog.querySelectorAll("iframe")).toHaveLength(2);
+    project.videos.forEach((video) => {
+      expect(within(dialog).getByTitle(`${video.title} video`)).toHaveAttribute("src", video.url);
+    });
+    expect(within(dialog).getByText(/random forest classifier on the AMASS motion dataset/i)).toBeInTheDocument();
 
     await user.click(within(dialog).getByRole("button", { name: /close project detail/i }));
     expect(screen.queryByRole("dialog", { name: new RegExp(project.title, "i") })).not.toBeInTheDocument();
