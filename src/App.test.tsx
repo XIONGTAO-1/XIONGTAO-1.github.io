@@ -16,9 +16,12 @@ describe("technical animator portfolio", () => {
     expect(profile.about).toContain("Bachelor of Arts");
     expect(profile.about).toContain("Bachelor of Engineering");
     expect(profile.about).toContain("MSc in Computer Animation and Visual Effects");
+    expect(profile.about).toContain("Yotta Games");
+    expect(profile.about).toContain("Rigging / Animation Technical Artist");
     expect(profile.about).toContain("Python");
     expect(profile.about).toContain("MEL");
     expect(profile.about).toContain("GLSL");
+    expect(profile.location).toBe("Rigging / Animation Technical Artist at Yotta Games");
   });
 
   it("uses the requested work order and project media", () => {
